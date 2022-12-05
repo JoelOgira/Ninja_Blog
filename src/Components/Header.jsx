@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
-        <div className="Header w-full a:cursor-pointer sticky top-0 z-30 bg-white py-6">
+        <div className="Header w-full a:cursor-pointer sticky top-0 z-30 bg-gray-200 py-6 mb-6">
             <div className="flex items-center justify-between">
                 <Link to="/" className="cursor-pointer">
-                    <h1 className="font-bold text-3xl text-pink-500">
+                    <h1 className="font-semibold text-3xl text-pink-500">
                         The Ninja Blog
                     </h1>
                 </Link>
