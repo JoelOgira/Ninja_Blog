@@ -1,23 +1,6 @@
-import { useState, useEffect } from "react";
-import api from "../api/blogs"
 import Feed from "./Feed";
 
-const Home = () => {
-
-    const [blogs, setBlogs] = useState([]);
-
-    useEffect(() => {
-        const getBlogs = async () => {
-            try {
-                const response = await api.get('/blogs');
-                setBlogs(response.data);
-            } catch (error) {
-                console.log(error.message);   
-            }
-        }
-        getBlogs();
-    }, []);
-    
+const Home = ({blogs}) => { 
 
     return (
         <div className="Home flex flex-col space-y-5">
