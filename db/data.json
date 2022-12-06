@@ -1,11 +1,18 @@
 {
-    "blogs": [
-        {
-            "id": 1,
-            "author": "Daniel Nkurkunzinza",
-            "datetime": "October 22, 2022 9:01:52 PM",
-            "title": "The Rise and Fall of Wekenzunze",
-            "body": "We live in a time and season where all the people of the world are very skeptical and afraid of what is to come. No one really knows what that is going to be but it is really going to be fun to take a look at it without all of the prejudices of the society."
-        }
-    ]
+  "blogs": [
+    {
+      "id": 1,
+      "author": "Daniel Nkurkunzinza",
+      "datetime": "October 22, 2022 9:01:52 PM",
+      "title": "The Rise and Fall of Wekenzunze",
+      "body": "We live in a time and season where all the people of the world are very skeptical and afraid of what is to come. No one really knows what that is going to be but it is really going to be fun to take a look at it without all of the prejudices of the society."
+    },
+    {
+      "id": 2,
+      "author": "William Kamkwamba",
+      "datetime": "December 22, 2022 10:32:37 PM",
+      "title": "How do I know she will keep quite",
+      "body": "There are some cases where you might want to decouple the container breakpoints from the screens values, there are different ways to do this:\n\nNon-documented container.screens property\n\nThe container’s code in Tailwind CSS actually calls a container.screensproperty before default back to the global screens, you can see the code here. I actually found this on stackoverflow so wanted to give proper credit.\n\nBased on this, and taking the Tailwind config example above, we could do something like:"
+    }
+  ]
 }
