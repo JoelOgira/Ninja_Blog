@@ -15,8 +15,8 @@ const Header = () => {
                             Home
                         </button>
                     </Link>
-                    <Link to="/">
-                        <button className="text-white bg-pink-500 p-4 rounded-md hover:bg-white hover:text-pink-500">
+                    <Link to="/blog">
+                        <button className="text-white bg-pink-500 p-4 rounded-md hover:bg-transparent hover:text-pink-500">
                             New Blog
                         </button>
                     </Link>
