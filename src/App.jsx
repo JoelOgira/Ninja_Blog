@@ -10,11 +10,18 @@ import New from "./Components/New";
 const App = () => {
 
   const [blogs, setBlogs] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [search, setSearch] = useState('');
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [body, setBody] = useState('');
 
   const history = useNavigate();
+
+  useEffect(() => {
+    const filteredResults = blogs.filter((blog) => ((blog.title).toLowerCase().includes(search.toLowerCase()) || ((blog.author).toLowerCase().includes(search.toLowerCase()))));
+    setSearchResults(filteredResults.reverse());
+  }, [blogs, search])
 
   useEffect(() => {
       const getBlogs = async () => {
@@ -45,11 +52,21 @@ const App = () => {
     }
   }
 
+  const handleDelete = async (id) => {
+    try {
+      await api.delete(`/blogs/${id}`);
+      setBlogs(blogs.filter((blog) => blog.id !== id));
+      history('/');
+    } catch (error) {
+      console.log(`Error: ${error.message}`);
+    }
+  }
+
   return (
     <div className="App container px-8 h-screen mx-auto md:w-3/4 lg:w-1/2 md:px-0 bg-gray-200">
-      <Header />
+      <Header search={search} setSearch={setSearch} />
       <Routes>
-        <Route path="/" element={<Home blogs={blogs} />} />
+        <Route path="/" element={<Home blogs={searchResults} />} />
         <Route path="/blog" element={<New 
           title={title}
           setTitle={setTitle}
@@ -59,7 +76,10 @@ const App = () => {
           setBody={setBody}
           handleSubmit={handleSubmit}  
         />} />
-        <Route path="/blog/:id" element={<BlogPage blogs={blogs} />} />
+        <Route path="/blog/:id" element={<BlogPage 
+          blogs={blogs} 
+          handleDelete={handleDelete}
+        />} />
       </Routes>
     </div>
   )
