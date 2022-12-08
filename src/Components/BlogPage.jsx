@@ -23,7 +23,7 @@ const BlogPage = ({ blogs, handleDelete }) => {
           <p className="leading-loose text-lg mb-4">{blog.body}</p>
 
           <div className="flex space-x-4 items-center pt-2 ">
-            <Link to="/" >
+            <Link to={`/edit/${blog.id}`} >
               <button className="p-3 bg-pink-500 text-white mb-10 border-solid border-2 border-pink-500 hover:text-black hover:bg-transparent rounded-md">
                   Edit Blog
               </button>
