@@ -1,18 +1,11 @@
 {
   "blogs": [
     {
-      "id": 1,
-      "author": "Daniel Nkurkunzinza",
-      "datetime": "October 22, 2022 9:01:52 PM",
-      "title": "The Rise and Fall of Wekenzunze",
-      "body": "We live in a time and season where all the people of the world are very skeptical and afraid of what is to come. No one really knows what that is going to be but it is really going to be fun to take a look at it without all of the prejudices of the society."
-    },
-    {
-      "id": 2,
-      "author": "William Kamkwamba",
-      "datetime": "December 22, 2022 10:32:37 PM",
-      "title": "How do I know she will keep quite",
-      "body": "There are some cases where you might want to decouple the container breakpoints from the screens values, there are different ways to do this:\n\nNon-documented container.screens property\n\nThe container’s code in Tailwind CSS actually calls a container.screensproperty before default back to the global screens, you can see the code here. I actually found this on stackoverflow so wanted to give proper credit.\n\nBased on this, and taking the Tailwind config example above, we could do something like:"
+      "id": 3,
+      "author": "Dall-E",
+      "datetime": "December 22, 2022 12:51:29 PM",
+      "title": "Introduction to AI",
+      "body": "With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.\n\nThe European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them."
     }
   ]
 }
