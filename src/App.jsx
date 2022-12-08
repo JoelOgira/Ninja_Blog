@@ -63,7 +63,7 @@ const App = () => {
   }
 
   return (
-    <div className="App container px-8 h-screen mx-auto md:w-3/4 lg:w-1/2 md:px-0 bg-gray-200">
+    <div className="App container px-8 h-full mx-auto md:w-3/4 lg:w-1/2 md:px-0 bg-gray-200">
       <Header search={search} setSearch={setSearch} />
       <Routes>
         <Route path="/" element={<Home blogs={searchResults} />} />
