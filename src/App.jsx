@@ -65,7 +65,7 @@ const App = () => {
       setEditAuthor('');
       setEditBody('');
       setEditTitle('');
-      history('/');
+      history(`/blog/${editedBlog.id}`);
     } catch (error) {
       console.log(`Error: ${error.message}`) 
     }
