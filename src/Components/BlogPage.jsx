@@ -1,15 +1,28 @@
-import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import DeleteModal from "./DeleteModal";
+import DataContext from "../Context/DataContext";
+import api from "../api/blogs"
 
-
-const BlogPage = ({ blogs, handleDelete }) => {
+const BlogPage = () => {
+  const { blogs, setBlogs } = useContext(DataContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const {id} = useParams();
+  const history = useNavigate();
   const blog = blogs.find(blog => (blog.id).toString() === id);
 
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
+  }
+
+  const handleDelete = async (id) => {
+    try {
+        await api.delete(`/blogs/${id}`);
+        setBlogs(blogs.filter((blog) => blog.id !== id));
+        history('/');
+    } catch (error) {
+        console.log(`Error: ${error.message}`);
+    }
   }
 
   return (
@@ -20,7 +33,7 @@ const BlogPage = ({ blogs, handleDelete }) => {
           <p className="font-normal text-gray-700 dark:text-gray-400 text-2xl my-3">Written by {blog.author}</p>
           <p className="font-normal text-gray-700 dark:text-gray-400">{blog.datetime}</p>
           <hr className="my-3 w-full h-px bg-black border-0" />
-          <p className="leading-loose text-lg mb-4">{blog.body}</p>
+          <textarea value={blog.body} readOnly className="w-full h-screen bg-transparent focus:outline-none" ></textarea>
 
           <div className="flex space-x-4 items-center pt-2 ">
             <Link to={`/edit/${blog.id}`} >
