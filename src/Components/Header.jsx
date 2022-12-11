@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import Search from "./Search.";
+import { useContext } from "react";
+import DataContext from "../Context/DataContext";
 
-const Header = ({ search, setSearch }) => {
+const Header = () => {
+    
+    const { search, setSearch } = useContext(DataContext);
+
     return (
         <div className="Header w-full a:cursor-pointer sticky top-0 z-30 bg-gray-200 py-6 mb-6">
             <div className="flex items-center justify-between">
