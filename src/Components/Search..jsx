@@ -1,4 +1,10 @@
-const Search = ({ search, setSearch }) => {
+import { useContext } from "react";
+import DataContext from "../Context/DataContext";
+
+const Search = () => {
+
+    const { search, setSearch } = useContext(DataContext);
+
     return ( 
         <form className="max-w-sm px-4" onSubmit={e => e.preventDefault()}>
             <div className="relative">
