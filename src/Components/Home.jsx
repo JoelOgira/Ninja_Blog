@@ -1,6 +1,10 @@
 import Feed from "./Feed";
+import { useContext } from "react";
+import DataContext from "../Context/DataContext";
 
-const Home = ({blogs, error, isLoading}) => { 
+const Home = () => { 
+
+    const { searchResults: blogs, error, isLoading} = useContext(DataContext);
 
     return (
         <div className="Home flex flex-col space-y-5">
