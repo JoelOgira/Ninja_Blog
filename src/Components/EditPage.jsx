@@ -1,11 +1,16 @@
-import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { format } from "date-fns";
+import api from "../api/blogs";
+import DataContext from "../Context/DataContext";
 
-const EditPage = ({
-    blogs, editTitle, setEditTitle, editAuthor, setEditAuthor, editBody, setEditBody, handleEdit
-}) => {
-
+const EditPage = () => {
+    const [editTitle, setEditTitle] = useState('');
+    const [editAuthor, setEditAuthor] = useState('');
+    const [editBody, setEditBody] = useState('');
+    const { blogs, setBlogs } = useContext(DataContext);
     const { id } = useParams();
+    const history = useNavigate();
     const blog = blogs.find((blog) => blog.id == id);
 
     useEffect(() => {   
@@ -15,6 +20,21 @@ const EditPage = ({
             setEditBody(blog.body);
         }      
     }, [blog, setEditTitle, setEditAuthor, setEditBody])
+
+    const handleEdit = async (id) => {
+        const datetime = format(new Date(), 'MMMM yy, yyyy pp');
+        const editedBlog = {id, datetime, title:editTitle, author:editAuthor, body:editBody}
+        try {
+            const response = await api.put(`/blogs/${id}`, editedBlog);
+            setBlogs(blogs.map((blog) => blog.id === id ? { ...response.data} : blog));
+            setEditAuthor('');
+            setEditBody('');
+            setEditTitle('');
+            history(`/blog/${editedBlog.id}`);
+        } catch (error) {
+            console.log(`Error: ${error.message}`) 
+        }
+    }
 
     return (
         <div className="Edit">
