@@ -9,7 +9,7 @@ const Header = () => {
 
     return (
         <div className="Header w-full a:cursor-pointer sticky top-0 z-30 bg-gray-200 py-6 mb-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap space-y-3 items-center justify-center md:justify-between">
                 <Link to="/" className="cursor-pointer pt-3">
                     <h1 className="font-semibold text-3xl text-pink-500">
                         The Ninja Blog
