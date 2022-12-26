@@ -53,7 +53,7 @@ const BlogPage = () => {
           <div className="flex items-center justify-center mt-11 py-11">
             <Link to="/">
               <p className="text-4xl leading-loose cursor-pointer text-center">
-                The are no blogs currently available. <br />
+                The blog is not available. <br />
                 Go Back to Homepage
               </p>
             </Link>
