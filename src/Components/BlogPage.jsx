@@ -33,7 +33,7 @@ const BlogPage = () => {
           <p className="font-normal text-gray-700 dark:text-gray-400 text-2xl my-3">Written by {blog.author}</p>
           <p className="font-normal text-gray-700 dark:text-gray-400">{blog.datetime}</p>
           <hr className="my-3 w-full h-px bg-black border-0" />
-          <textarea value={blog.body} readOnly className="w-full h-screen bg-transparent focus:outline-none" ></textarea>
+          <textarea value={blog.body} readOnly className={`w-full ${(blog?.body).length < 500 ? 'h-96' : 'h-screen' } bg-transparent focus:outline-none`}></textarea>
 
           <div className="flex space-x-4 items-center pt-2 ">
             <Link to={`/edit/${blog.id}`} >
