@@ -66,7 +66,7 @@ const EditPage = () => {
                     ></textarea>
                 </div>
                 <button onClick={() => handleEdit(blog.id)} type="submit" className="cursor-pointer text-white bg-pink-500 hover:bg-pink-900 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm p-3 text-center">Edit Blog</button>
-                <Link to={`/blog/${blog.id}`}>
+                <Link to={`/blog/${blog?.id}`}>
                     <button type="submit" className="mx-6 cursor-pointer text-white bg-pink-800 hover:bg-pink-300 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm p-3 text-center">Cancel</button>
                 </Link>
             </form>
