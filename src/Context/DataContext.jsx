@@ -11,7 +11,7 @@ export const DataProvider = ({ children }) => {
     const { data, error, isLoading } = useAxiosFetch('http://localhost:4200/blogs');
 
     useEffect(() => {
-        setBlogs(data);
+        setBlogs(data.reverse());
     }, [data])
 
     useEffect(() => {
